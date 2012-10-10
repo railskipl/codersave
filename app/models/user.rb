@@ -16,7 +16,17 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   before_create { generate_token(:auth_token) }
 
- 
+  has_many :authentications, :dependent => :destroy
+  
+  # Method for Omniauth Application. Called at authentications controller.
+  def apply_omniauth(auth)
+    # In previous omniauth, 'user_info' was used in place of 'raw_info'
+    self.email = auth['extra']['raw_info']['email']
+    # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
+    authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+  end 
+  
+  # This Method is for allowing authentication via link mailed to the user while registering. 
   def authenticated_via_link
     self.is_authenticated == true
   end
