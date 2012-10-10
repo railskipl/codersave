@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CoderSave</title>
+<%= csrf_meta_tag %>
+
+</head>
+<body>
+
+<header>
+
+<nav class="round">
+<ul>
+<li><%= link_to "Home", root_path %></li>
+<% if signed_in? %>
+<li><%= link_to "Profile", current_user %></li>
+
+<% end %>
+
+
+
+<% if signed_in? %>
+<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+<% else %>
+<li><%= link_to "Sign in", signin_path %></li>
+<li> <%= link_to "Sign up now!", signup_path %></li>
+<% end %>
+
+</ul>
+</nav>
+</header>
+
+<section class="round">
+	<% flash.each do |key, value| %>
+<div class="flash <%= key %>"><%= value %></div>
+<% end %>
+<center>
+<%= yield %>
+</center>
+</section>
+
+
+</body>
+</html>
