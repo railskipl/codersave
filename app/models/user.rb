@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation,:role_ids, :user_id, :is_authenticated
    
-  validates :name, :presence => true, 
-                  :length => { :maximum => 50 }
+ 
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -12,8 +11,8 @@ class User < ActiveRecord::Base
                      :format => { :with => email_regex},
                      :uniqueness => { :case_sensitive => false }
 
-  validates :password,  :confirmation => true
-
+  validates :password,  :confirmation => false
+	
   before_save :encrypt_password
   before_create { generate_token(:auth_token) }
 

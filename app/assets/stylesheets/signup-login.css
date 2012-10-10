@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Typography */
+
+body {
+  background:#122821;
+  margin:0 auto;
+  text-align:center;
+  font-family:Arial, Helvetica, sans-serif;
+  line-height:18px;
+}
+
+.logo {
+  position:relative;
+  width:640px;
+  height:72px;
+  background:transparent url(/assets/signup-bigpic/appsumo-logo.png) 50% 50% no-repeat;
+  margin:0 auto;
+  margin-top:72px;
+  margin-bottom:36px;
+  text-align:left;
+}
+
+.logo span {
+  position:absolute;
+  top:33px;
+  left:300px;
+  color:#FFF;
+  font-family:Georgia, "Times New Roman", Times, serif;
+  font-style:italic;
+  font-weight:normal;
+  font-size:18px;
+  text-shadow: 2px 2px 0px #000;
+}
+
+
+.container {
+  position:relative;
+  width:640px;
+  /* height:324px; */
+  background:rgb(57,57,57);
+  background:rgba(0,0,0,0.9);
+  margin:0 auto;
+  margin-top:18px;
+  padding:0px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.call-to-action {
+  position:relative;
+  width:640px;
+  height:288px;
+  background:transparent url(/assets/signup-bigpic/bg.jpg) no-repeat;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.35);
+  border:1px rgb(7,13,11) solid;
+  border:1px rgba(7,13,11,1.00) solid;
+}
+
+a {
+  color:rgb(220,231,228);
+  color:rgba(220,231,228,1.00);
+  *color:rgb(220,231,228);
+  text-decoration:none;
+  border-bottom:dotted rgb(220,231,228) 1px;
+  border-bottom:dotted rgba(220,231,228,0.60) 1px;
+}
+
+a:hover {
+  color:rgb(220,231,228);
+  color:rgba(220,231,228,0.60);
+  *color:rgb(220,231,228);
+}
+
+.hook {
+  font-size:12px;
+  font-weight:normal;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#ffffff;
+  text-align:left;
+  margin: 1em 0;
+}
+
+.options {
+  font-size:12px;
+  font-weight:normal;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#8c9a96;
+  text-align:center;
+}
+
+.as-seen {
+  font-size:24px;
+  font-weight:normal;
+  font-family:'PT Sans Narrow', Arial, Helvetica, sans-serif;
+  color:#5C7172;
+  text-align:center;
+  text-shadow: -1px -1px 0px rgba(0,0,0,0.45);
+}
+
+.headline {
+  font-size:20px;
+  font-weight:normal;
+  font-family:'PT Sans Narrow', Arial, Helvetica, sans-serif;
+  letter-spacing:-0.5px;
+  color:#ffffff;
+ /* padding:0 20px 0 20px; 
+ margin: .67em 0;*/
+  text-align:left;
+  line-height:1em;
+  text-shadow: -1px -1px 0px rgba(0,0,0,0.45);
+  
+}
+
+.headline em {
+  color:#facb22;
+  font-weight:normal;
+  font-style:normal;
+}
+
+.input-background, .input-background-small {
+  display:block;
+  margin: 0 auto;
+  background:transparent url(/assets/signup-bigpic/form.png) no-repeat top left;
+  width:220px;
+  padding:9px 10px;
+  height:18px;
+  border:0;
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.55);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.55);
+}
+
+.input-background-small {
+  background:transparent url(/assets/v6/form-2.png) no-repeat top left;
+  width: 110px;
+}
+
+.email, form input {
+  position:relative;
+  margin:0;
+  width:100%;
+  height:100%;
+  padding:0;
+  background:transparent;
+  border:0;
+  color:rgb(0,0,0);
+  color:rgba(0,0,0,0.80);
+  *color:rgb(0,0,0);
+  outline:none;
+  line-height:18px;
+}
+
+.bt-blank-small-wm {position:relative;display:block;border:0;width:176px;height:36px;margin: 10px auto;background:transparent url(/assets/bt-checkout.png) no-repeat -528px -144px;text-align:center;color:#342b0b;text-decoration:none;text-transform:uppercase;font-weight:bold;font-size:18px;line-height:36px;text-shadow: 1px 1px #f5df92;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+.bt-blank-small-wm:hover {background-position:-528px -180px;color:#342b0b;text-shadow: 1px 1px #ffe9a0;}
+
+.bt-fb-login {position:relative;display:block;width:201px;height:36px;margin:0;background:transparent url(/assets/facebook.png) no-repeat 0 0;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-moz-box-shadow: 0px 0px 0px #dfdfdf;-webkit-box-shadow: 0px 0px 0px #dfdfdf;box-shadow: 0px 0px 0px #dfdfdf;}
+.bt-fb-login:hover {background-position:0 -36px;}
+.bt-fb-join {position:relative;display:block;width:237px;height:34px;margin:0;background:transparent url(/assets/facebook.png) no-repeat 0px 0;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-moz-box-shadow: 0px 0px 0px #dfdfdf;-webkit-box-shadow: 0px 0px 0px #dfdfdf;box-shadow: 0px 0px 0px #dfdfdf;}
+.bt-fb-join:hover {background-position:-201px -36px;}
+
+
+.extra {
+  width:100%;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:11px;
+  color:rgb(255,255,255);
+  color:rgba(255,255,255,0.65);
+  *color:rgb(255,255,255);
+  line-height:36px;
+  text-align:center;
+  margin:0;
+}
+
+.extra a {
+  color:rgb(255,255,255);
+  color:rgba(255,255,255,0.35);
+  *color:rgb(255,255,255);
+  text-decoration:underline;
+  border:0;
+}
+
+.footer {
+  position:fixed;
+  bottom:0px;
+  right:40px;
+  margin:0 auto;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:11px;
+  color:rgb(255,255,255);
+  color:rgba(255,255,255,0.95);
+  *color:rgb(255,255,255);
+  width:240px;
+  text-align:center;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.75);
+}
+
+.footer a {
+  color:rgb(255,255,255);
+  color:rgba(255,255,255,0.95);
+  *color:rgb(255,255,255);
+  text-decoration:underline;
+  border:0;
+}
+
+.footer a:hover {
+  text-decoration:none;
+}
+
+.left {
+  float:left;
+  position:relative;
+  width:320px;
+  height:288px;
+  margin:0;
+  text-align:center;
+}
+
+.right {
+  float:right;
+  position:relative;
+  width:320px;
+  height:288px;
+  margin:0;
+  text-align:center;
+}
+
+#page {
+  z-index: 2;
+  position: relative;
+}
+
+.email_suggestion {
+  font-size:12px;
+  color:#8C9A96;
+  padding:8px 0 0 0;
+}
+
+.splitter {
+  margin:0;
+  padding:1px 0 0 0;
+  border-width:1px 0 0 0;
+  border-style:solid;
+  border-color:#8C9A96;
+  font-size:1px;
+  letter-spacing:10px;
+}
+
+:-moz-placeholder {
+  font-size: 11px;
+  color: #AAAAAA;
+}
+
+::-webkit-input-placeholder {
+  font-size: 11px;
+  color: #AAAAAA;
+}
+
+.placeholder {
+  font-size: 11px;
+  color: #AAAAAA;
+}

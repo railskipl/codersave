@@ -2,43 +2,331 @@
 <html>
 <head>
 <title>CoderSave</title>
+<%= javascript_include_tag 'application', 'jquery-1' %>
+<%= stylesheet_link_tag  "signup-login.css", "style.css", "bootstrap.css" %>
 <%= csrf_meta_tag %>
 
+<!-- Sign Up window flip script Start here -->
+<script type="text/javascript">
+    function replaceEmailField(address) {
+      $('#emailinput').val(address);
+      $('#emailinput').focus();
+      $('#capture').submit();
+    }
+
+    function displayLogin() {
+      $('#register').hide();
+      $('#login').show();
+      $('.logindiv h3.hook').html("<a class='btn' href='javascript:void(0);' onclick='displayRegister();'>Sign Up</a>");
+    }
+    
+    function displayRegister() {
+      $('#login').hide();
+      $('#register').show();
+      $('.logindiv h3.hook').html("Already a member? <a href='javascript:void(0);' onclick='displayLogin();'>Log in</a>");
+    }
+    
+    $(document).ready(function() {
+      $('input[name=email]').attr('placeholder', 'Enter your email');
+      $('input[name=password]').attr('placeholder', 'Enter your password');
+      //  Initialize Backgound Stretcher
+      $(document).bgStretcher({
+        images: ['https://s3.amazonaws.com/static.appsumo.com/eec33e8075eb89c32f41dcdafb5f7b730650e005/images/signup-bigpic/sumo-green-2.jpg'],
+        imageWidth: 1024,
+        imageHeight: 768
+      });
+
+      $('.facebook_connect').click(function(e) {      
+        var fb_permissions = {scope: 'email,user_birthday,user_location,publish_stream,publish_actions,user_interests,user_likes'};                
+        FB.login(function(response) {
+          if (response.authResponse) {
+            document.location = document.location.protocol+'//'+document.location.host+'/account/login/?fblogin=1&next=/account/';
+          }
+          return true;
+        }, fb_permissions);        
+        e.preventDefault();
+      });
+  
+      $("#emailinput").focus();
+
+      function IsValidEmail(email) {
+        var filter = /^([\w-\.\+]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return filter.test(email);
+      }
+
+      $("#emailinput").focusout(function() {
+        $(this).mailcheck({
+          suggested: function(element, suggestion) {
+            $('.email_suggestion').html("Did you mean <a href='javascript:void(0);' onclick='replaceEmailField(\"" + suggestion.full + "\")'>" + suggestion.address + "@<b>" + suggestion.domain + "</b>?</a>").show();
+          },
+          empty: function(element) {
+            $('.email_suggestion').hide();
+          }
+        });
+      });
+
+      $('form#capture').submit(function() {
+        var sug = false;
+        var email = $.trim($(this).find('input[type="text"]').val());
+        $(this).find('input[type="text"]').val(email)
+        if(email == '') {
+          $('#capture h3.error').html('<span style="color: red;">We\'re gonna need an email address, buddy.</span>');
+          return false;
+        } else {
+          $('#emailinput').mailcheck({
+            suggested: function(element, suggestion) {
+              if ($('.email_suggestion').is(':visible')) {
+                sug = false;
+              }
+              else {
+                sug = true;
+                $('.email_suggestion').html("<br /><a href='javascript:void(0);' onclick='replaceEmailField(\"" + suggestion.full + "\")'>" + suggestion.address + "@<b>" + suggestion.domain + "</b>?</a>").show();
+              }
+            },
+            empty: function(element) {
+              $('.email_suggestion').hide();
+            }
+          });
+
+          if (sug) {
+            return false;
+          }
+          else {
+            if(IsValidEmail(email)) {
+              $('#capture h3.error').html('<span style="color: green;">Hooray!</span>');
+              return true;
+            } else {
+              $('#capture h3.error').html('<span style="color: red;">We\'re gonna need a legit email address, buddy.</span>');
+              return false;
+            }
+          }
+        }
+      });
+    });
+  </script>
+<!-- Sign Up window flip script Ends here -->
 </head>
 <body>
 
-<header>
-
-<nav class="round">
-<ul>
-<li><%= link_to "Home", root_path %></li>
-<% if signed_in? %>
-<li><%= link_to "Profile", current_user %></li>
-
-<% end %>
-
-
-
-<% if signed_in? %>
-<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
-<% else %>
-<li><%= link_to "Sign in", signin_path %></li>
-<li> <%= link_to "Sign up now!", signup_path %></li>
-<% end %>
-
-</ul>
-</nav>
-</header>
-
-<section class="round">
-	<% flash.each do |key, value| %>
-<div class="flash <%= key %>"><%= value %></div>
-<% end %>
-<center>
-<%= yield %>
-</center>
-</section>
-
+<div align="center" id="maindiv">
+  <div align="center" id="wrapper">
+    <div id="logo"><a href="#"><img src="/assets/logo.png" alt="code save" title="code save" border="0" /></a></div>
+	 	<div id="loginbox">
+     	 <div style="display: block;" id="login" class="logindiv">
+	 		 <h1>Member Login</h1>
+	  			<div class="fb"><a href="#"><img src="/assets/facebook.png" alt="" border="0" /></a></div>
+	  				<div>Or sign in with your coder save account</div>
+	  					<!---Sign In form Starts here-->
+	  						<%= form_for(:session, :url => sessions_path) do |f| %>
+	 							 <div class="labeldiv"> Email 
+									<%= f.text_field :email, :class => "logintf", :placeholder => "Enter Your Email" %>
+	 							  </div>
+	  
+	  							  <div class="labeldiv"> Password
+	 								<%= f.password_field :password, :class => "logintf", :placeholder => "Enter Your Password"  %>
+	  							  </div>
+	  							<div>
+	  								<%= f.submit "Log in", :class=> "btn" %>
+	  
+	  						<% end %>
+						  <!---Sign In form Ends here-->
+	  							 </div>
+	  		</div>
+	  	<div id="register" style="display: none; text-align:left">
+          	<h1 class="headline">Join Today!</h1>
+		  
+          	<div id="emcollect">
+          	
+            <form method="POST" action="/account/register/?next=/account/" id="capture" class="focusfirst">
+              <div style="display:none"><input name="csrfmiddlewaretoken" value="e4780374297942de7c7d610d281d1620" type="hidden"></div>
+              <a class="bt-fb-join facebook_connect" href="javascript:void(0);" style="border:0;margin-left:auto;margin-right:auto;"></a>
+              <div>Or </div>
+              <div class="labeldiv"> Email 
+				<input onblur="if (this.value == '') this.value = 'Enter your email';" onfocus="if(this.value=='Enter your email')this.value='';" type="text" id="Email" value="Enter your email" class="logintf"/>
+			</div>
+              <button type="submit" class="btn" onClick="_gaq.push(['_trackEvent', 'Email_Submission', 'New_Member']);">Sign Up </button>
+            </form>
+            
+          </div>
+        </div>
+	  
+	   
+	  <div class="divider"></div>
+	  
+	  <div class="logindiv" style="display: block;" id="login">
+	  
+	  <h1>Become a Member</h1>
+	   <div class="membership">Get up to 70% OFF on best programming courses on the web! <span class="white_txt">Memberships is FREE</span></div>
+	   
+	   <div>
+	    <h3 class="hook"><a class="btn" href="javascript:void(0);" onClick="displayRegister();">Sign Up</a></h3>
+	  </div>
+	  
+	  </div>
+  </div>
+	<div class="b_shadow"></div>
+  </div>
+  
+  <div class="course_preview_bg">
+  <div class="course_preview_heading">Courses Preview</div>
+    <div class="course_preview_wrap">
+	<ul class="discover-courses-list">
+	  
+	<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>
+                    </span>
+                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum olestie.</span> 
+                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span> 
+                </a>
+     </li>
+					
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+					
+					
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet 
+Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+					
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet 
+Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+					
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet 
+Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+					
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet 
+Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+					
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet 
+Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+					
+					<li>
+            <a class="mask" href="#">
+                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+                    <span>
+                        <span>View This Course</span>                    </span>                </span>
+                <span class="main-info">
+                    <h3>Lorem ipsum dolor sit amet 
+Sed tincidunt </h3>
+                    <h4>
+                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
+                        <span class="title ellipsis">Lorem ipsum dolor </span>
+                        <span class="job-title ellipsis">Sed tincidunt interdum 
+molestie.</span>                    </h4>
+                </span>
+                <span class="course-info">
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+	</ul>
+	
+	
+	</div>
+  
+  </div>
+  <div class="footer_wrap">
+  <div class="footer">Copyright 2012 codersave   |   Privacy</div>
+  
+  </div>
+</div>
 
 </body>
 </html>
