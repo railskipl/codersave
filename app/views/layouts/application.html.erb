@@ -109,7 +109,7 @@
 	 	<div id="loginbox">
      	 <div style="display: block;" id="login" class="logindiv">
 	 		 <h1>Member Login</h1>
-	  			<div class="fb"><a href="/auth/facebook"><img src="/assets/facebook.png" alt="" border="0" /></a></div>
+	  			<div class="fb"><a href="#"><img src="/assets/facebook.png" alt="" border="0" /></a></div>
 	  				<div>Or sign in with your coder save account</div>
 	  					<!---Sign In form Starts here-->
 	  						<%= form_for(:session, :url => sessions_path) do |f| %>
@@ -133,7 +133,7 @@
           	<div id="emcollect">
             
               <div style="display:none"><input name="csrfmiddlewaretoken" value="e4780374297942de7c7d610d281d1620" type="hidden"></div>
-              <a class="bt-fb-join facebook_connect" href="/auth/facebook" style="border:0;margin-left:auto;margin-right:auto;"></a>
+              <a class="bt-fb-join facebook_connect" href="javascript:void(0);" style="border:0;margin-left:auto;margin-right:auto;"></a>
               <div>Or </div>
             <%= form_for(:user, :url => {:controller=>"users", :action=>"create"}) do |f| %>
               <div class="labeldiv"> Email 
