@@ -26,15 +26,10 @@
       $('.logindiv h3.hook').html("Already a member? <a href='javascript:void(0);' onclick='displayLogin();'>Log in</a>");
     }
     
-    $(document).ready(function() {
+    $(document).ready(function() { 
       $('input[name=email]').attr('placeholder', 'Enter your email');
       $('input[name=password]').attr('placeholder', 'Enter your password');
-      //  Initialize Backgound Stretcher
-      $(document).bgStretcher({
-        images: ['https://s3.amazonaws.com/static.appsumo.com/eec33e8075eb89c32f41dcdafb5f7b730650e005/images/signup-bigpic/sumo-green-2.jpg'],
-        imageWidth: 1024,
-        imageHeight: 768
-      });
+      
 
       $('.facebook_connect').click(function(e) {      
         var fb_permissions = {scope: 'email,user_birthday,user_location,publish_stream,publish_actions,user_interests,user_likes'};                
@@ -136,16 +131,22 @@
           	<h1 class="headline">Join Today!</h1>
 		  
           	<div id="emcollect">
-          	
-            <form method="POST" action="/account/register/?next=/account/" id="capture" class="focusfirst">
+            
               <div style="display:none"><input name="csrfmiddlewaretoken" value="e4780374297942de7c7d610d281d1620" type="hidden"></div>
               <a class="bt-fb-join facebook_connect" href="javascript:void(0);" style="border:0;margin-left:auto;margin-right:auto;"></a>
               <div>Or </div>
+            <%= form_for(:user, :url => {:controller=>"users", :action=>"create"}) do |f| %>
               <div class="labeldiv"> Email 
-				<input onblur="if (this.value == '') this.value = 'Enter your email';" onfocus="if(this.value=='Enter your email')this.value='';" type="text" id="Email" value="Enter your email" class="logintf"/>
-			</div>
-              <button type="submit" class="btn" onClick="_gaq.push(['_trackEvent', 'Email_Submission', 'New_Member']);">Sign Up </button>
-            </form>
+              	<%= f.text_field :email, :class => "logintf", :placeholder => "Enter Your Email."  %>
+			  </div>
+			  <div class="labeldiv"> Password 
+			    <%= f.password_field :password,  :class => "logintf", :placeholder => "Enter Your Password." %>
+			  </div>
+			  <div class="labeldiv"> Password Confirmation
+			    <%= f.password_field :password_confirmation,  :class => "logintf", :placeholder => "Confirm Your Password." %>
+			  </div>
+			  <%= f.submit "Sign up", :class => "btn" %>
+            <% end %>
             
           </div>
         </div>

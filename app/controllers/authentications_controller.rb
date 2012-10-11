@@ -14,7 +14,6 @@ class AuthenticationsController < ApplicationController
   # GET /authentications/1.json
   def show
     @authentication = Authentication.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @authentication }
@@ -52,7 +51,7 @@ class AuthenticationsController < ApplicationController
          user = User.new
          # Apply Omniauth method in user for new omniauth account!
          user.apply_omniauth(auth)
-         if user.save
+         if user.save(:validate => false)
            flash[:notice] = "Account created and signed in successfully."
            sign_in user
            redirect_to user_root_path

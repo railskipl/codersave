@@ -8,7 +8,9 @@ DemoCloud::Application.routes.draw do
  get "password_resets/new"
 
  match '/change_password', :controller => 'users', :action => 'change_password'
-  
+ 
+ # resources :users
+ 
  resources :users do
     get "is_authenticated", :on=> :member
  end
