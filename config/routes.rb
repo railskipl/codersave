@@ -3,7 +3,7 @@ DemoCloud::Application.routes.draw do
  resources :authentications
  
  # Match the Omniauth provider Callback.
- match '/auth/facebook/callback' => 'authentications#create' 
+ match '/auth/:provider/callback' => 'authentications#create' 
  
  get "password_resets/new"
 
