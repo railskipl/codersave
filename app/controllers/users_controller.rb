@@ -27,32 +27,37 @@ class UsersController < ApplicationController
  end
 
  def edit
+    @user = User.find(params[:id])
     @title = "Edit user"
  end
 
  def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated."
-      redirect_to @user
+    if (User.authenticate(@user.email, params[:user][:password]) == @user) || (@user.authentications && @user.encrypted_password == nil)
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile updated."
+        redirect_to @user
+      else
+        @title = "Edit user"
+        render 'edit'
+      end 
     else
-      @title = "Edit user"
+      flash[:error] = "Profile not updated. Enter Correct Password"
       render 'edit'
-    end
- end
+    end 
+  end
  
  def change_password
     @user = User.find(current_user.id)
     if request.post?
-      if User.authenticate(@user.email,
-        params[:change_password][:old_password]) == @user
+      if (User.authenticate(@user.email, params[:change_password][:old_password]) == @user) || (@user.authentications && @user.encrypted_password == nil)
         @user.password = params[:change_password][:new_password]
         @user.password_confirmation =
         params[:change_password][:new_password_confirmation]
 
           if @user.save
             flash[:notice] = 'Password successfully updated!'
-            redirect_to change_password_path
+            redirect_to @user
           else
             flash[:error] = 'New password mismatch.'
             render :action => 'change_password'

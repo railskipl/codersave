@@ -1,4 +1,9 @@
-
 <h1>Welcome to Dashbroad</h1>
- Welcome  <%= current_user.name%><br/><br/>
-  Email:<%= current_user.email %><br/>
+
+<p>
+<h6><%= link_to "Sign Out", signout_path %></h6>
+<h6><%= link_to "Edit Me", edit_user_path(current_user) %></h6>
+</p>
+    
+<h4> Welcome <%= current_user.name %>, </h4>
+<h4> Email: <%= current_user.email %> </h4>

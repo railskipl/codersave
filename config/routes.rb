@@ -1,9 +1,16 @@
 DemoCloud::Application.routes.draw do 
  
+ resources :authentications
+ 
+ # Match the Omniauth provider Callback.
+ match '/auth/:provider/callback' => 'authentications#create' 
+ 
  get "password_resets/new"
 
  match '/change_password', :controller => 'users', :action => 'change_password'
-  
+ 
+ # resources :users
+ 
  resources :users do
     get "is_authenticated", :on=> :member
  end

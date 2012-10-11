@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       redirect_to user_root_path
     else
        flash.now[:error] = "Please authenticate your email with verification link."
+       puts "Please authenticate your email with verification link."
        @title = "Sign in"
        render 'new'
     end
