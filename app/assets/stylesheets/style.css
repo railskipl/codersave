@@ -1,6 +1,6 @@
 /* CSS Document */
 
-body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; background:url(/assets/bg.jpg) repeat-x}
+body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; background:url(/assets/bg.jpg) repeat-x #ac0007}
 
 #maindiv{ width:100%; height:auto}
 #wrapper{ width:381px; height:auto;}
