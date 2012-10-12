@@ -45,7 +45,8 @@ class AuthenticationsController < ApplicationController
       if authentication
          # Authentication found, sign the user in.
          flash[:notice] = "Signed in successfully."
-         sign_in_and_redirect(:user, authentication.user)
+         sign_in(authentication.user)
+         redirect_to user_root_path
       else
          # Authentication not found, thus a new user.
          user = User.new

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery
   include SessionsHelper
   layout :layout_by_resource
@@ -7,7 +8,8 @@ class ApplicationController < ActionController::Base
     if signed_in?   
  
     else
-     "application"
+      "application"
     end
   end
+
 end
