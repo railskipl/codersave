@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :email, :presence => true,
-                     :format => { :with => email_regex},
-                     :uniqueness => { :case_sensitive => false }
+                    :format => { :with => email_regex},
+                    :uniqueness => { :case_sensitive => false }
 
   validates :password,  :confirmation => false
 	
@@ -47,17 +47,20 @@ class User < ActiveRecord::Base
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end
- class << self
-    def authenticate(email, submitted_password)
-      user = find_by_email(email)
-      (user && user.has_password?(submitted_password)) ? user :nil  
-    end
+  
+class << self
+  def authenticate(email, submitted_password)
+    user = find_by_email(email)
+    (user && user.has_password?(submitted_password)) ? user :nil  
+  end
     
-    def authenticate_with_salt(id,cookie_salt)
-      user = find_by_id(id)
-      (user && user.salt == cookie_salt) ? user :nil
-    end 
- end
+  def authenticate_with_salt(id,cookie_salt)
+    user = find_by_id(id)
+    (user && user.salt == cookie_salt) ? user :nil
+  end 
+ 
+end
+
 private
   def encrypt_password
     self.salt = make_salt if new_record?
@@ -69,7 +72,7 @@ private
   end
  
   def make_salt
-   secure_hash("#{Time.now.utc}--#{password}")
+    secure_hash("#{Time.now.utc}--#{password}")
   end
  
   def secure_hash(string)

@@ -1,4 +1,5 @@
 class PasswordResetsController < ApplicationController
+
   def create
     user = User.find_by_email(params[:email])
     if user
@@ -23,4 +24,6 @@ class PasswordResetsController < ApplicationController
       render :edit
     end
   end
+
 end
+          
