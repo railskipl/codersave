@@ -49,7 +49,10 @@ DemoCloud::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+   config.action_mailer.raise_delivery_errors = true
+   
+   # set delivery method to :smtp, :sendmail or :test
+   config.action_mailer.delivery_method = :smtp
 
   # Enable threaded mode
   # config.threadsafe!
