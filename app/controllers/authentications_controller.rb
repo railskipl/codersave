@@ -52,6 +52,7 @@ class AuthenticationsController < ApplicationController
          user = User.new
          # Apply Omniauth method in user for new omniauth account!
          user.apply_omniauth(auth)
+         
          if user.save(:validate => false)
            flash[:notice] = "Account created and signed in successfully."
            sign_in user
