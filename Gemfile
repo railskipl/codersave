@@ -10,8 +10,8 @@ gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
 gem 'cancan'
-gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth', '1.0.3'
+gem 'omniauth-facebook', '1.4.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
