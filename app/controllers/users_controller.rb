@@ -17,8 +17,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save && UserMailer.authenticate_registration(@user).deliver   
-      redirect_to root_url, :flash => {:success => "Please check your email for verification link #{@user.name}"}
+    if @user.save && UserMailer.authenticate_registration(@user).deliver 
+      redirect_to root_url, notice: "Please check your email for verification link #{@user.email}"
+      
     else
       @title = "Sign up"
       render 'new'
@@ -45,6 +46,14 @@ class UsersController < ApplicationController
       flash[:error] = "Profile not updated. Enter Correct Password"
       render 'edit'
     end 
+  end
+  
+  
+  def check_email
+      @user = User.find_by_email(params[:user][:email]) 
+        respond_to do |format|
+            format.json { render :json => !@user }
+       end
   end
  
   def change_password
@@ -75,6 +84,8 @@ class UsersController < ApplicationController
     @user.update_column(:is_authenticated, true)
     redirect_to root_path, :flash => {:success => "Congratulations Profile verified! Please login."}
   end
+  
+  
     
   private
   def authenticate

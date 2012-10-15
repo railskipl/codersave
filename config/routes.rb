@@ -4,6 +4,7 @@ DemoCloud::Application.routes.draw do
  
  # Match the Omniauth provider Callback.
  match '/auth/:provider/callback' => 'authentications#create' 
+ match '/users/validations/check_email', :to=>"users#check_email"
  
  get "password_resets/new"
 

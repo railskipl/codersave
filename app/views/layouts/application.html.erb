@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>CoderSave</title>
-<%= javascript_include_tag 'application', 'jquery-1' %>
+<%= javascript_include_tag 'application', 'jquery-1','jquery.validate.min' %>
 <%= stylesheet_link_tag  "signup-login.css", "style.css", "bootstrap.css" %>
 <%= csrf_meta_tag %>
 
@@ -110,9 +110,10 @@
      	 <div style="display: block;" id="login" class="logindiv">
 	 		 <h1>Member Login</h1>
 	  			<div class="fb"><a class="bt-fb-login facebook_connect" href="/auth/facebook" style="border:0;margin-left:auto;margin-right:auto;"></a></div>
+	  			
 	  				<div>Or sign in with your coder save account</div>
 	  					<!---Sign In form Starts here-->
-	  						<%= form_for(:session, :url => sessions_path) do |f| %>
+	  						<%= form_for(:session, :url => sessions_path, :html => {:id => "signin"}) do |f| %>
 	 							 <div class="labeldiv"> Email 
 									<%= f.text_field :email, :class => "logintf", :placeholder => "Enter Your Email" %>
 	 							  </div>
@@ -124,7 +125,7 @@
 	  								<%= f.submit "Log in", :class=> "btn" %>
 	  
 	  						<% end %>
-						  <!---Sign In form Ends here-->
+						  <!---Sign In form Ends here-->  
 	  							 </div>
 	  		</div>
 	  	<div id="register" style="display: none; text-align:left">
@@ -135,7 +136,7 @@
               <div style="display:none"><input name="csrfmiddlewaretoken" value="e4780374297942de7c7d610d281d1620" type="hidden"></div>
               <a class="bt-fb-join facebook_connect" href="/auth/facebook" style="border:0;margin-left:auto;margin-right:auto;"></a>
               <div>Or </div>
-            <%= form_for(:user, :url => {:controller=>"users", :action=>"create"}) do |f| %>
+            <%= form_for(:user, :url => {:controller=>"users", :action=>"create"}, :html => {:id => "signup"}) do |f| %>
               <div class="labeldiv"> Email 
               	<%= f.text_field :email, :class => "logintf", :placeholder => "Enter Your Email."  %>
 			  </div>
@@ -150,6 +151,16 @@
             
           </div>
         </div>
+        
+        <div style = "text-align :left; color :red" >
+        
+          <% flash.each do |key, msg| %>
+            <div id="<%= key %>">   
+              <p><%= msg %></p>
+              <div class="clear"></div>
+            </div>
+          <% end %>
+         </div>
 	  
 	   
 	  <div class="divider"></div>
@@ -208,7 +219,7 @@
 molestie.</span>                    </h4>
                 </span>
                 <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span></a>        </li>
 					
 					
 					
@@ -227,7 +238,7 @@ Sed tincidunt </h3>
 molestie.</span>                    </h4>
                 </span>
                 <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span></a>        </li>
 					
 					
 					<li>
@@ -245,7 +256,7 @@ Sed tincidunt </h3>
 molestie.</span>                    </h4>
                 </span>
                 <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span></a>        </li>
 					
 					
 					<li>
@@ -263,7 +274,7 @@ Sed tincidunt </h3>
 molestie.</span>                    </h4>
                 </span>
                 <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span> </a>        </li>
 					
 					
 					<li>
@@ -281,7 +292,7 @@ Sed tincidunt </h3>
 molestie.</span>                    </h4>
                 </span>
                 <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span>            </a>        </li>
 					
 					
 					<li>

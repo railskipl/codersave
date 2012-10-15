@@ -10,6 +10,7 @@ body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1
 #loginbox{ width:240px; height:auto; padding:20px; background:url(/assets/black_block.jpg); border:1px solid #000; border-radius:10px; color:#7c7c7c}
 
 .logindiv{ width:100%; height:auto; text-align:left}
+.error { color: #FE1717; font: 13px "Trebuchet MS",Arial,Helvetica,sans-serif,sans-serif;}
 
 h1{ color:#FFFFFF; font-size:20px; font-weight:bold; padding:0; margin:0}
 
