@@ -33,7 +33,8 @@ $(document).ready(function() {
 		"user[password_confirmation]":{
 						required:true,
 						minlength:4,
-						maxlength:20
+						maxlength:20,
+						equalTo: "#user_password"
 		}
 		},
 		
@@ -54,7 +55,8 @@ $(document).ready(function() {
 		"user[password_confirmation]":{
 						            required: "Please enter password confirmation",
 						            minlength:jQuery.format("Please enter at least 4 characters."),
-						            maxlength:jQuery.format("Can not exceed 20 characters")
+						            maxlength:jQuery.format("Can not exceed 20 characters"),
+												equalTo: "Password does not match"
 		}
 		
 		}
