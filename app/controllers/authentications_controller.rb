@@ -85,7 +85,6 @@ class AuthenticationsController < ApplicationController
   def destroy
     @authentication = Authentication.find(params[:id])
     @authentication.destroy
-
     respond_to do |format|
       format.html { redirect_to authentications_url }
       format.json { head :no_content }
