@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       @title = "Sign in"
       render 'new'
     elsif user.authenticated_via_link
-      sign_in user
+      sign_in1 user
       redirect_to user_root_path
     else
        flash.now[:error] = "Please authenticate your email with verification link."
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   end
  
   def destroy
-    sign_out
+    sign_out1
     redirect_to root_path
   end
 
