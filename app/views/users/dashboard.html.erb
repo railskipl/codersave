@@ -8,3 +8,16 @@
 <h4> Welcome <%= current_user.name %>, </h4>
 <h4> Email: <%= current_user.email %> </h4>
 
+<table border="0">
+<tbody>	
+<th>No</th>	
+<th>Course Title</th>
+<tr>	
+<% @courses.each do |course|%>
+
+<td><%= link_to course.id, course %></td><br>
+<td><%= course.course_title %></td>
+</tr>
+<%end%>
+</tbody>
+</table>

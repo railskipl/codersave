@@ -13,7 +13,7 @@ class UsersController < ApplicationController
  
   def dashboard
     @users = User.all
-    
+    @courses = Course.all
     
   end
 

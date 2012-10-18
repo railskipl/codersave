@@ -28,8 +28,11 @@
 
 <%= @course.Number_of_People%><br>
 
-<%= @course.courserating%><br>
+<%= @course.courserating%><br><br><br>
+
+<%= image_tag @course.image_url(:thumb) if @course.image? %><br><br>
 
 
-<a href="<%= @course.affiliate_program_link %> " ><%=@course.affiliate_program_link %></a>	
+<a href="<%= @course.affiliate_program_link %> " ><%=@course.affiliate_program_link %></a><br><br>	
 
+<%= link_to 'Back', root_path %>
