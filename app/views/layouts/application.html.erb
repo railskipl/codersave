@@ -181,155 +181,35 @@
   
   <div class="course_preview_bg">
   <div class="course_preview_heading">Courses Preview</div>
+  	<% @courses = Course.all %>
+   
     <div class="course_preview_wrap">
+    	
 	<ul class="discover-courses-list">
-	  
+	   <% @courses.each do |course|  %>
 	<li>
-       <a class="mask" href="#">
-           <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
+       <a class="mask" href="/courses/<%= course.id %>">
+         <span style="background-image: url( <%=course.image_url(:thumb)%>)" class="course-thumb">
                <span>
                  <span>View This Course</span>
                </span>
            </span>
                 <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet Sed tincidunt </h3>
+                    <h3><%= course.course_title %> </h3>
                     <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum olestie.</span> 
+                        <span style="background-image: url(<%= course.profile_photo_url(:normal)%>)" class="thumb"></span> 
+                        <span class="title ellipsis"><%= course.headline %>  </span>
+                        <span class="job-title ellipsis"><%= course.goals_objectives %>.</span> 
                     </h4>
                 </span>
                 <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span> 
+                 <%= course.course_summary %> </span> 
                 </a>
      </li>
-					
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span></a>        </li>
-					
-					
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet 
-Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span></a>        </li>
-					
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet 
-Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span></a>        </li>
-					
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet 
-Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span> </a>        </li>
-					
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet 
-Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.ipsum dolor sit amet, </span>            </a>        </li>
-					
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet 
-Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
-					
-					<li>
-            <a class="mask" href="#">
-                <span style="background-image: url(/assets/course.jpg)" class="course-thumb">
-                    <span>
-                        <span>View This Course</span>                    </span>                </span>
-                <span class="main-info">
-                    <h3>Lorem ipsum dolor sit amet 
-Sed tincidunt </h3>
-                    <h4>
-                        <span style="background-image: url(/assets/user.jpg)" class="thumb"></span> 
-                        <span class="title ellipsis">Lorem ipsum dolor </span>
-                        <span class="job-title ellipsis">Sed tincidunt interdum 
-molestie.</span>                    </h4>
-                </span>
-                <span class="course-info">
-                    Lorem ipsum dolor sit amet ipsum dolor sit amet, consectetur adipiscing elit.                ipsum dolor sit amet, </span>            </a>        </li>
+			<%end%>							
+				
 	</ul>
-	
+
 	
 	</div>
   

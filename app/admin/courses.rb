@@ -28,7 +28,7 @@ ActiveAdmin.register Course do
       f.input :affiliate_program_link
      
       f.input :image
-      
+      f.input :profile_photo
       
     end
     f.buttons
