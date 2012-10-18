@@ -1,8 +1,12 @@
 DemoCloud::Application.routes.draw do 
  
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   #ActiveAdmin.routes(self)
 
-  #devise_for :admin_users, ActiveAdmin::Devise.config
+  #devise_for :admin_users, ActiveAdmin::Devise.config, ActiveAdmin::Devise.config
 
  resources :authentications
  
@@ -27,10 +31,10 @@ DemoCloud::Application.routes.draw do
   root :to => 'homes#index'
   
   match 'dashboard' => 'users#dashboard', :as => 'user_root'
-  match '/signup', :to =>'users#new'
-  match '/signin', :to =>'sessions#new'
+  match '/user_signup', :to =>'users#new'
+  match '/user_signin', :to =>'sessions#new'
   match  '/users/:id/edit',  :to => "users#edit" 
-  match '/signout', :to =>'sessions#destroy'
+  match '/user_signout', :to =>'sessions#destroy'
   
   resources :password_resets
   # The priority is based upon order of creation:
