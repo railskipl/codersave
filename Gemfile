@@ -15,7 +15,8 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'activeadmin'
 gem "rmagick"
 gem "carrierwave"
-
+gem 'prototype-rails'
+gem 'ajaxful_rating', :git => 'git://github.com/edgarjs/ajaxful-rating.git', :branch => "rails3"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/edgarjs/ajaxful-rating.git
+  revision: f22e2c38d601f8279e959fbe9a578b2314235505
+  branch: rails3
+  specs:
+    ajaxful_rating (3.0.0.beta8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -121,6 +128,8 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    prototype-rails (3.2.1)
+      rails (~> 3.2)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -177,6 +186,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  ajaxful_rating!
   cancan
   carrierwave
   coffee-rails (~> 3.2.1)
@@ -186,6 +196,7 @@ DEPENDENCIES
   omniauth (= 1.0.3)
   omniauth-facebook (= 1.4.0)
   pg
+  prototype-rails
   rails (= 3.2.3)
   rmagick
   sass-rails (~> 3.2.3)

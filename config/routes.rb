@@ -10,7 +10,11 @@ DemoCloud::Application.routes.draw do
 
  resources :authentications
  
- resources :courses
+ resources :courses do
+   post "rate", :on=> :member
+ end
+ 
+
  
  # Match the Omniauth provider Callback.
  match '/auth/:provider/callback' => 'authentications#create' 

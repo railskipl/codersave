@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   def layout_by_resource
     if signed_in?
-      "dashborad"   
+   
     else
       "application"
     end

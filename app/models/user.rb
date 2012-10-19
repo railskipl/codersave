@@ -1,5 +1,9 @@
 require 'digest'
 class User < ActiveRecord::Base
+  
+  ajaxful_rateable :dimensions => [:behavior]
+  ajaxful_rater
+  
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :role_ids, :user_id, :is_authenticated
    

@@ -3,4 +3,6 @@ class Course < ActiveRecord::Base
    
     mount_uploader :image, ImageUploader
     mount_uploader :profile_photo, ProfilePhotoUploader
+    
+   ajaxful_rateable :dimensions => [:quality], :allow_update => true
 end
