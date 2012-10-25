@@ -1,5 +1,7 @@
 DemoCloud::Application.routes.draw do 
  
+  resources :comments
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -25,7 +27,8 @@ DemoCloud::Application.routes.draw do
  match '/change_password', :controller => 'users', :action => 'change_password'
  
  # resources :users
- 
+  match 'users/my_profile' ,:to =>'users#my_profile'
+  match 'users/account_setting' ,:to =>'users#account_setting'
  resources :users do
     get "is_authenticated", :on=> :member
  end

@@ -5,7 +5,7 @@ ActiveAdmin.register Course do
      @per_page = 5
   end
   
-     category = [["programmer"], ["coder"]]
+     category = [["Webtutorial"], ["Apptutorial"]]
      
    form do |f|
     f.inputs do
@@ -21,6 +21,7 @@ ActiveAdmin.register Course do
       f.input :video_link
       f.input :price
       f.input :discounted_price
+      f.input :percent_off
       f.input :Voucher
       f.input :Number_of_People
       f.input :courserating
@@ -41,6 +42,7 @@ ActiveAdmin.register Course do
     column :instructor
     column :price
     column :discounted_price
+    column :percent_off
     column :courserating
     default_actions
   end
@@ -60,12 +62,14 @@ ActiveAdmin.register Course do
     row :video_link
     row :price
     row :discounted_price
+    row :percent_off
     row :Voucher
     row :Number_of_People
     row :courserating
     row :ExpiryDate
     row :affiliate_program_link
     row :image
+    
   end
   end
 end

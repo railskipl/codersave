@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019102704) do
+ActiveRecord::Schema.define(:version => 20121025110302) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20121019102704) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["course_id"], :name => "comments_course_id_fk"
+
   create_table "courses", :force => true do |t|
     t.string   "course_title"
     t.string   "course_category"
@@ -50,8 +60,8 @@ ActiveRecord::Schema.define(:version => 20121019102704) do
     t.string   "instructor"
     t.string   "description"
     t.string   "video_link"
-    t.float    "price"
-    t.float    "discounted_price"
+    t.integer  "price"
+    t.integer  "discounted_price"
     t.string   "Voucher"
     t.date     "ExpiryDate"
     t.integer  "Number_of_People"
@@ -61,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20121019102704) do
     t.datetime "updated_at",             :null => false
     t.string   "image"
     t.string   "profile_photo"
+    t.float    "percent_off"
   end
 
   create_table "rates", :force => true do |t|
@@ -93,5 +104,7 @@ ActiveRecord::Schema.define(:version => 20121019102704) do
     t.datetime "password_reset_sent_at"
     t.boolean  "is_authenticated"
   end
+
+  add_foreign_key "comments", "courses", :name => "comments_course_id_fk"
 
 end

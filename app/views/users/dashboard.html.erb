@@ -1,23 +1,67 @@
-<h1>Welcome to Dashbroad</h1>
 
-<p>
-<h6><%= link_to "Sign Out", user_signout_path %></h6>
-<h6><%= link_to "Edit Me", edit_user_path(current_user) %></h6>
-</p>
-    
-<h4> Welcome <%= current_user.name %>, </h4>
-<h4> Email: <%= current_user.email %> </h4>
 
-<table border="0">
-<tbody>	
-<th>No</th>	
-<th>Course Title</th>
-<tr>	
-<% @courses.each do |course|%>
+  
+<div class="tutorial_container">
+<div class="tab_link"><a href="#" class="tab_link">All Tutorials</a> <a href="#" class="tab_link">Web Tutorials</a> <a href="#" class="tab_link">App Tutorials</a></div>
+	
+	<div class="result_count"><%= @courses.length %> results</div>
+   <% @courses.each do |course|%>
+	<div class="tutorials_box_highlight">
+	
+	<div class="tutorials_box_left">
+	
+	<div class="tutorial_image"><%= image_tag course.image_url(:normal1) if course.image? %></div>
+	
+	<div style="width:auto; float:left; text-align:center; margin:10px 0 0 10px">
+	
+	 	  <%= ratings_for course, :dimension => :quality rescue "" %>
+	
+	</div>
+	
+	 
+	</div>
+	
+	<div class="tutorials_box_right">
+	<div class="tutorial_heading"><%= course.course_title %>.</div>
 
-<td><%= link_to course.id, course %></td><br>
-<td><%= course.course_title %></td>
-</tr>
-<%end%>
-</tbody>
-</table>
+<div class="tutorial_discription"><%= course.course_summary %> </div>
+
+
+<div class="button_wraper">
+
+
+<div style="float:left; margin:0 0 0 10px; width:auto"><%= link_to "VIEW THIS COURSE", course ,:class =>"deal"%></div> 
+
+  <% @calculate_discount = ((course.percent_off || 1)/100)*((course.price))%>
+  
+  <% @total_discount = (course.price)-(@calculate_discount) %>
+  
+  <div style="margin:0 0 0 10px; float:left"><span class="price">$<%= @total_discount %></span><span class="discount">$<%= course.price %></span><span class="off"> (<%= course.percent_off %>% OFF)</span></div>
+  
+  <% @a= ( course.ExpiryDate - Date.today ).to_i rescue ""%> 
+  	 
+	<% if @a < 0 %>
+	
+	<div style="margin:0; float:left; width:100%; margin:10px 0"><span class="expires">Expires:</span><%=" Sorry  Course has been expired" %></div>
+	<%else%>
+			<div style="margin:0; float:left; width:100%; margin:10px 0"><span class="expires">Expires:</span><span class="days"> <%= a= ( course.ExpiryDate - Date.today ).to_i rescue ""%> Days</span></div>
+	<% end %>
+  
+  </div>
+
+		</div>
+	
+		<div class="featured_ribbon"></div>
+	</div>
+	<%end%>
+			
+	</div>
+	</div>
+	
+
+
+	  
+
+
+
+

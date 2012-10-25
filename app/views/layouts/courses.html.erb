@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CoderSave</title>
+<%= stylesheet_link_tag  "ajaxful_rating.css","style2.css"%>
+   
+<%= javascript_include_tag 'application' %>
+<%= ajaxful_rating_style %>
+<%= yield :styles %>
+
+<%= yield :scripts %>
+
+
+<%= csrf_meta_tag %>
+
+</head>
+<body>
+<div align="center" id="maindiv">
+		<div align="center" id="wrapper">
+
+  			<div id="header">
+			
+	<div id="logo2"><%= link_to image_tag('/assets/logo2.png'), user_root_path %></div>
+<div class="top_right_menu"><%= current_user.email rescue "" %>   
+<a href="#">About Us</a>
+<a href="#">How it works</a>  
+<%= link_to "My Account", users_my_profile_path %>        
+<a href="#">Help</a>     
+<%= link_to "Logout", user_signout_path %></div>
+</div>
+
+<%= yield %>
+<div class="footer_wrap">
+  	<div class="footer">� Copyright 2012 codersave   |   Privacy</div>
+  
+  </div>
+</div>
+</body>
+</html>

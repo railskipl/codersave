@@ -1,0 +1,23 @@
+		<div id="message_overlay">
+			<div id="message_overlay_bar"></div>
+				<div id="photo"></div>
+				<div id="message_title"><%= @message.subject %></div>
+				<div id="message_timestamp">8:00 a.m. September 7, 2012</div>
+				<div id="message_close_button"></div>
+				<div id="senders">
+					<% sender_user = User.find(@messages.sender)  %>
+					<div class=>"sender_name"><%= sender_user.first_name %></div>
+				</div>
+				<div id="recipients">
+					<% reciever_user = User.find(@messages.recipient)  %>
+					<div class="receiver_name"><%= reciever_user.first_name %></div>
+					
+				</div>
+				<div id="reply"><%= link_to "",reply_message_path ,:remote=>true %></div>
+				<div id="reply_all"></div>
+				<div id="forward"><%= link_to "",forward_message_path ,:remote=>true %> </div>
+				<div id="message">
+				<%= @message.body %>
+				</div>
+			</div>
+	

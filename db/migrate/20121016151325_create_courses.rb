@@ -11,8 +11,8 @@ class CreateCourses < ActiveRecord::Migration
        t.string :instructor
        t.string :description
        t.string :video_link
-       t.float  :price
-       t.float  :discounted_price
+       t.integer :price
+       t.integer :discounted_price
        t.string :Voucher
        t.date   :ExpiryDate
        t.integer :Number_of_People

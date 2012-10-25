@@ -1,10 +1,21 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
-  
+  layout 'dashboard'
   def show
     @user = User.find(params[:id])
+   
   end
+  def rate
+    @course = Course.all
+    @course.rate(params[:stars], current_user, params[:dimension])
+    render :update do |page|
+      page.replace_html @course.wrapper_dom_id(params), ratings_for(@course, params.merge(:wrap => false))
+      page.visual_effect :highlight, @course.wrapper_dom_id(params)
+  end
+ end
+ 
+ 
  
   def new
     @user = User.new
@@ -13,10 +24,22 @@ class UsersController < ApplicationController
  
   def dashboard
     @users = User.all
+    @course = Course.all
     @courses = Course.all
     
+    #calculate discount
+  
+   
+    
+    
   end
-
+  def my_profile
+   
+  end
+  def account_setting
+   
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save && UserMailer.authenticate_registration(@user).deliver 

@@ -1,10 +1,20 @@
 class CoursesController < ApplicationController
      before_filter :authenticate, :only => [:edit, :update, :dashboard,:show]
      
-  layout "dashboard"
+  layout "courses"
   
   def show
    @course = Course.find(params[:id])  
+   
+   @comment =  @course.comments.new
+    
+    #calculate discount
+   
+     @calculate_discount = ((@course.percent_off|| 1)/100)*((@course.price))
+     
+     @total_discount = (@course.price)-(@calculate_discount) 
+   
+   
   end
   
   

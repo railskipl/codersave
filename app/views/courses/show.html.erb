@@ -1,46 +1,157 @@
-
-
-<%= @course.course_title%><br>
-
-<%= @course.course_category%><br>
-
-<%= @course.headline%><br>
-
-<%= @course.course_summary%><br>
-
-<%= @course.goals_objectives%><br>
-
-<%= @course.intended_audience%><br>
-
-<%= @course.course_requirements%><br>
-
-<%= @course.instructor%><br>
-
-<%= @course.description%><br>
-
-<%= @course.video_link%><br>
-
-<%= @course.price%><br>
-
-<%= @course.discounted_price%><br>
-
-<%= @course.Voucher%><br>
-
-<%= @course.ExpiryDate%><br>
-
-<%= @course.Number_of_People%><br>
-
-<%= @course.courserating%><br><br><br>
-
-<%= image_tag @course.image_url(:thumb) if @course.image? %><br><br>
-
-Global Avg: <%= ratings_for @course, :dimension => :quality %>
-
-<a href="<%= @course.affiliate_program_link %> " ><%=@course.affiliate_program_link %></a><br><br>	
-
-<%= link_to 'Back', root_path %>
+<% content_for :styles do %>
+<%= stylesheet_link_tag "tab.css" %>
+<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag  "tabber.js" %>
+<% end %>
 
 
 
+
+
+
+
+
+<div class="tutorial_container">
+
+	
+	<div class="description"><span class="result_count">Curabitur consectetur ante a purus aliquet sit amet hendrerit magna dapibus.
+Vivamus dapibus vestibulum massa, vitae euismod ligula pulvinar</span>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Donec tristique tempus nibh eu ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Donec tristique tempus nibh eu ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+</div>
+
+
+
+
+	
+
+	<div class="tutorials_box2">
+	
+	<div class="tutorials_box_left2">
+	
+	<div class="tutorial_image"><%= image_tag @course.image_url(:thumb2) if @course.image? %></div>
+	
+
+	
+	 
+	  </div>
+	
+		<div class="tutorials_box_right2">
+		
+		
+		
+	<div class="button_wraper">
+	
+	<div style="margin:0; float:left; width:100%">
+	
+	<div>See all <%= Comment.find_all_by_course_id(@course.id).length%> reviews</div>
+	<div>
+		<div style="width:auto; float:left; text-align:left; margin:10px 0 10px 0px">
+	
+      <%= ratings_for @course, :dimension => :quality %>
+	
+	</div>
+	
+	</div>
+	<div style="width:100%; float:left">5 out 5 stars on Udemy by 1000 subscribers</div>
+	
+	</div>
+  
+  	<div style="margin:0; float:left; width:100%; margin:10px 0 0 0"><span class="price">$ <%= @total_discount %> </span><span class="discount">$<%= @course.price%></span><span class="off">(<%= @course.percent_off %>% OFF)</span></div>
+  
+  			 <% @a= ( @course.ExpiryDate - Date.today ).to_i rescue ""%> 
+  	 
+	<% if @a < 0 %>
+	
+			<div style="margin:0; float:left; width:100%; margin:10px 0"><span class="expires">Expires:</span><%=" Sorry  Course has been expired" %></div>
+			
+	<%else%>
+			<div style="margin:0; float:left; width:100%; margin:10px 0"><span class="expires">Expires:</span><span class="days"> <%= a= ( @course.ExpiryDate - Date.today ).to_i rescue ""%> Days</span></div>
+			
+	<% end %>
+	<div style="float:left; margin:0; width:100%"><a href="http://ude.my/bou46" class="deal">GET THIS DEAL</a></div> 
+  
+  	</div>
+
+	</div>
+	
+	
+	</div>
+	
+	
+	
+	
+	<div class="tabs">
+       	  <div class="tabber">
+
+     <div class="tabbertab">
+	  <h2>What we think</h2>
+	 <div class="description"><span class="result_count">Curabitur consectetur ante a purus aliquet sit amet hendrerit magna dapibus.
+Vivamus dapibus vestibulum massa, vitae euismod ligula pulvinar</span>
+
+<img src="images/tutorial_image.jpg" alt=""  style="float:left; margin:10px 10px 10px 0"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Donec tristique tempus nibh eu ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Donec tristique tempus nibh eu ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl quis lorem scelerisque malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+</div>
+	  <p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+	    
+	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+	    
+	    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+		
+		<ul style="margin: 0 0 0 30px;">
+<li>Suspendisse a nulla ligula, vitae dictum augue.</li>
+<li>Maecenas eget diam vitae libero luctus aliquam at vitae nisi.</li>
+<li>Donec posuere turpis sit amet nunc euismod euismod.</li>
+<li>Maecenas convallis metus eu elit placerat iaculis.</li>
+<li>Aliquam vestibulum fringilla purus, sit amet imperdiet sem pharetra dapibus.</li>
+<li>Sed eu lorem in nisi tempus fermentum.</li>
+</ul>
+	  <p> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. </p>
+     </div>
+
+
+     <div class="tabbertab">
+	  <h2>Requirements</h2>
+	  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing or. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p>
+     </div>
+
+
+     <div class="tabbertab">
+		  <h2>Reviews (<%= Comment.find_all_by_course_id(@course.id).length%>)</h2>
+	 		<h2>Reviews</h2>
+				<% @course.comments.each do |comment| %>
+ 		 <div>
+   				 <strong><%= User.find_by_id(comment.user_id).email rescue "" %></strong>
+   				  <p><%= comment.created_at.strftime(" %b %d, %Y ")  rescue "" %><p>
+   			
+   			 
+   				 <p><%= comment.body %><p>
+  		</div>
+		<% end %>
+			<%= render 'comments/form' %>
+
+     </div>
+	 
+	      
+	 
+	      
+	 
+	 
+
+</div>
+          
+           <div class="clear"></div>       
+         </div>
+		 
+		 
+		 
+	
+    </div>
+
+ </div>
 
 
