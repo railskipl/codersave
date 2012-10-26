@@ -8,5 +8,5 @@ ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "http://codersave.herokuapp.com/"
+ActionMailer::Base.default_url_options[:host] = "codersave.herokuapp.com"
 
