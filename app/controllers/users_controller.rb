@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def dashboard
     @users = User.all
     @course = Course.all
-    @courses = Course.all
+    @courses = Course.find(:all, :order => "is_featured DESC")
     
     #calculate discount
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025110302) do
+ActiveRecord::Schema.define(:version => 20121026090915) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20121025110302) do
     t.string   "image"
     t.string   "profile_photo"
     t.float    "percent_off"
+    t.boolean  "is_featured"
   end
 
   create_table "rates", :force => true do |t|

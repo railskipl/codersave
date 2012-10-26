@@ -71,7 +71,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis nisl 
 			<div style="margin:0; float:left; width:100%; margin:10px 0"><span class="expires">Expires:</span><span class="days"> <%= a= ( @course.ExpiryDate - Date.today ).to_i rescue ""%> Days</span></div>
 			
 	<% end %>
-	<div style="float:left; margin:0; width:100%"><a href="http://ude.my/bou46" class="deal">GET THIS DEAL</a></div> 
+	<div style="float:left; margin:0; width:100%"><a href="<%= @course.affiliate_program_link %> " class="deal">GET THIS DEAL</a></div> 
   
   	</div>
 

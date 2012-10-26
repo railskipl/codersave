@@ -50,9 +50,13 @@
   </div>
 
 		</div>
-	
-		<div class="featured_ribbon"></div>
+	         <% if course.is_featured == true %>
+			<div class="featured_ribbon"><img src="/assets/featured.png" alt="" /></div>
+		<%else%>
+	       <div class="featured_ribbon"></div>
+	    <% end %>	
 	</div>
+	
 	<%end%>
 			
 	</div>

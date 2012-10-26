@@ -11,6 +11,7 @@ ActiveAdmin.register Course do
     f.inputs do
       f.input :course_title
       f.input :course_category, :as => :select, :collection => category,:prompt=>'select'
+      f.input :is_featured
       f.input :headline
       f.input :course_summary
       f.input :goals_objectives
@@ -27,7 +28,6 @@ ActiveAdmin.register Course do
       f.input :courserating
       f.input :ExpiryDate
       f.input :affiliate_program_link
-     
       f.input :image
       f.input :profile_photo
       
@@ -44,6 +44,7 @@ ActiveAdmin.register Course do
     column :discounted_price
     column :percent_off
     column :courserating
+    column :is_featured
     default_actions
   end
        
@@ -69,7 +70,7 @@ ActiveAdmin.register Course do
     row :ExpiryDate
     row :affiliate_program_link
     row :image
-    
+    row :is_featured
   end
   end
 end
