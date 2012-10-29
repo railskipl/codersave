@@ -36,7 +36,7 @@
   
   <% @total_discount = (course.price)-(@calculate_discount) %>
   
-  <div style="margin:0 0 0 10px; float:left"><span class="price">$<%= @total_discount %></span><span class="discount">$<%= course.price %></span><span class="off"> (<%= course.percent_off %>% OFF)</span></div>
+  <div style="margin:0 0 0 10px; float:left"><span class="price">$<%= number_with_precision(@total_discount,  :precision => 2) %></span> &nbsp;<span class="discount">$<%= course.price %></span><span class="off"> (<%= course.percent_off %>% OFF)</span></div>
   
   <% @a= ( course.ExpiryDate - Date.today ).to_i rescue ""%> 
   	 
