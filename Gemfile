@@ -17,6 +17,7 @@ gem "rmagick"
 gem "carrierwave"
 gem 'prototype-rails'
 gem 'ajaxful_rating', :git => 'git://github.com/edgarjs/ajaxful-rating.git', :branch => "rails3"
+gem 'fog'
 
 gem 'foreigner'
 # Gems used only for assets and not required
