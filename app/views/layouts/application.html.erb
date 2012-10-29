@@ -199,11 +199,11 @@
                     <h4>
                         <span style="background-image: url(<%= course.profile_photo_url(:normal)%>)" class="thumb"></span> 
                         <span class="title ellipsis"><%= course.headline %>  </span>
-                        <span class="job-title ellipsis"><%= truncate(course.goals_objectives, :length => 110).html_safe %></span> 
+                        <span class="job-title ellipsis"><%= truncate(course.goals_objectives, :length => 50).html_safe %></span> 
                     </h4>
                 </span>
                 <span class="course-info">
-                 <%= course.course_summary %> </span> 
+                 <%= truncate(course.course_summary, :length => 120) %></span> 
                 </a>
      </li>
 			<%end%>							
