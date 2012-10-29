@@ -17,10 +17,10 @@
 			
 	<div id="logo2"><%= link_to image_tag('/assets/logo2.png'), user_root_path %></div>
 <div class="top_right_menu"><%= current_user.email rescue "" %>   
-<a href="#">About Us</a>
-<a href="#">How it works</a>  
+<%= link_to "About Us", users_about_us_path %>
+ <%= link_to "How it works",users_how_it_works_path %> 
 <%= link_to "My Account", users_my_profile_path %>        
-<a href="#">Help</a>     
+<%= link_to "Help",users_help_path %>     
 <%= link_to "Logout", user_signout_path %></div>
 </div>
 

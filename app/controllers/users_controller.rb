@@ -45,6 +45,15 @@ class UsersController < ApplicationController
   def account_setting
    
   end
+  def about_us
+   
+  end
+  def help
+   
+  end
+  def how_it_works
+   
+  end
   
   def create
     @user = User.new(params[:user])
