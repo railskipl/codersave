@@ -2,7 +2,7 @@
 
   
 <div class="tutorial_container">
-<div class="tab_link"><a href="#" class="tab_link">All Tutorials</a> <a href="#" class="tab_link">Web Tutorials</a> <a href="#" class="tab_link">App Tutorials</a></div>
+<div class="tab_link"><%= link_to "All Tutorials", :controller =>"users" , :action =>"dashboard" %><%= link_to "Web Tutorials", :controller =>"users" , :action =>"dashboard",:value=>"Webtutorial" %><%= link_to "App Tutorials", :controller =>"users" , :action =>"dashboard",:value=>"Apptutorial" %> </div>
 	
 	<div class="result_count"><%= @courses.length %> results</div>
    <% @courses.each do |course|%>
