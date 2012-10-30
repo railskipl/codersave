@@ -45,6 +45,15 @@ class UsersController < ApplicationController
   def account_setting
    
   end
+  def about_us
+   
+  end
+  def help
+   
+  end
+  def how_it_works
+   
+  end
   
   def create
     @user = User.new(params[:user])
@@ -67,8 +76,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if (User.authenticate(@user.email, params[:user][:password]) == @user) || (@user.authentications && (@user.encrypted_password == nil))
       if @user.update_attributes(params[:user])
-        flash[:success] = "Profile updated."
-        redirect_to @user
+        flash[:success] = "Profile updated Successfully."
+        redirect_to users_my_profile_path
       else
         @title = "Edit user"
         render 'edit'

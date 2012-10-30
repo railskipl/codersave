@@ -28,6 +28,9 @@ DemoCloud::Application.routes.draw do
  
  # resources :users
   match 'users/my_profile' ,:to =>'users#my_profile'
+  match 'users/about_us' ,:to =>'users#about_us'
+  match 'users/help' ,:to =>'users#help'
+  match 'users/how_it_works' ,:to =>'users#how_it_works'
   match 'users/account_setting' ,:to =>'users#account_setting'
  resources :users do
     get "is_authenticated", :on=> :member
