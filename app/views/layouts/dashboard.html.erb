@@ -25,6 +25,13 @@
 </div>
 
 <%= yield %>
+ <%- flash.each do |key, msg| -%>
+  <div id="<%= key %>">
+   
+    <p><%= msg %></p>
+    <div class="clear"></div>
+  </div>
+<%- end -%>
 <div class="footer_wrap">
   	<div class="footer"> Copyright 2012 codersave   |   Privacy</div>
   
