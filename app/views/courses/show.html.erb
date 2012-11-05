@@ -6,34 +6,18 @@
 <% end %>
 
 
-
-
-
-
-
-
 <div class="tutorial_container">
 
 	
 	<div class="description">
 		<%= @course.course_summary.html_safe %>
-
-</div>
-
-
-
-
-	
-
+  </div>
 	<div class="tutorials_box2">
 	
 	<div class="tutorials_box_left2">
 	
 	<div class="tutorial_image"><%= image_tag @course.image_url(:thumb2) if @course.image? %></div>
 	
-
-	
-	 
 	  </div>
 	
 		<div class="tutorials_box_right2">
@@ -78,10 +62,7 @@
 	
 	
 	</div>
-	
-	
-	
-	
+
 	<div class="tabs">
        	  <div class="tabber">
 
@@ -100,23 +81,11 @@
 	  <p><%= @course.course_requirements.html_safe %> </p>
      </div>
 
-
-     
-	 
-	      
-	 
-	      
-	 
-	 
-
 </div>
           
            <div class="clear"></div>       
          </div>
-		 
-		 
-		 
-	
+		
     </div>
 
  </div>
