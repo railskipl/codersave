@@ -4,12 +4,12 @@ class CreateCourses < ActiveRecord::Migration
        t.string :course_title
        t.string :course_category
        t.string :headline
-       t.string :course_summary
-       t.string :goals_objectives
+       t.text :course_summary
+       t.text :goals_objectives
        t.string :intended_audience
-       t.string :course_requirements
+       t.text :course_requirements
        t.string :instructor
-       t.string :description
+       t.text :description
        t.string :video_link
        t.integer :price
        t.integer :discounted_price

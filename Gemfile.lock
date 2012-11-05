@@ -58,6 +58,9 @@ GEM
     carrierwave (0.7.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    ckeditor (3.7.3)
+      mime-types
+      orm_adapter
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -209,6 +212,7 @@ DEPENDENCIES
   ajaxful_rating!
   cancan
   carrierwave
+  ckeditor (= 3.7.3)
   coffee-rails (~> 3.2.1)
   execjs
   fog

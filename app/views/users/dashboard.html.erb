@@ -10,7 +10,7 @@
 	
 	<div class="tutorials_box_left">
 	
-	<div class="tutorial_image"><%= image_tag course.image_url(:normal1) if course.image? %></div>
+	<div class="tutorial_image"><%= link_to image_tag("#{course.image_url(:normal1)}"),course %></div>
 	
 	<div style="width:auto; float:left; text-align:center; margin:10px 0 0 10px">
 	
@@ -22,9 +22,9 @@
 	</div>
 	
 	<div class="tutorials_box_right">
-	<div class="tutorial_heading"><%= course.course_title %>.</div>
+	<div><%= link_to course.course_title,course,:class =>"tutorial_heading" %>.</div>
 
-<div class="tutorial_discription"><%= course.course_summary %> </div>
+<div class="tutorial_discription"><%= course.course_summary.html_safe %> </div>
 
 
 <div class="button_wraper">
@@ -36,7 +36,7 @@
   
   <% @total_discount = (course.price)-(@calculate_discount) %>
   
-  <div style="margin:0 0 0 10px; float:left"><span class="price">$<%= number_with_precision(@total_discount,  :precision => 2) %></span> &nbsp;<span class="discount">$<%= course.price %></span><span class="off"> (<%= course.percent_off %>% OFF)</span></div>
+  <div style="margin:0 0 0 10px; float:left"><span class="price">$<%= number_with_precision(@total_discount,  :precision => 0) %></span> &nbsp;<span class="discount">$<%= course.price %></span><span class="off2"> (<%= number_with_precision(course.percent_off,  :precision => 0) %>% OFF)</span></div>
   
   <% @a= ( course.ExpiryDate - Date.today ).to_i rescue ""%> 
   	 
