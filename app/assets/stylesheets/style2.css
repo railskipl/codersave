@@ -31,7 +31,7 @@ body
 {	width:1000px; height:auto;}
 
 #logo2
-{	width:157px; height:90px; float:left; margin:10px 0 0 0}
+{	width:157px; height:90px; float:left;  margin:10px 0 10px 0}
 
 .top_right_menu
 {	width:auto; height:auto; float:right; margin:10px 0 0 0; background:#000000; border-radius:10px; padding:5px 20px 5px 20px; color:#c6c6c6}
@@ -143,7 +143,7 @@ body
 	
 	
 	.tutorials_box_left2{ 
-	width:597px; 
+	width:500px; 
 	height:auto; 
 	float:left;  
 	background:#FFFFFF; 
@@ -173,6 +173,7 @@ body
 	font-size:25px; 
 	font-style:italic; 
 	color:#494949; 
+	text-decoration: none;
 	text-shadow:0px 0px 1px #fff; 
 	line-height:28px; padding:0}
 	
@@ -236,7 +237,7 @@ body
 	text-decoration: line-through;}
 
 .off{
-	font-size:25px;
+	font-size:20px;
 	font-weight:bold;
 	color:#a7a7a7;
 	}
@@ -422,6 +423,38 @@ width: auto;
 	width:956px; height:23px; min-height:23px; overflow:hidden; border-radius:10px; 	border:1px solid #bbbbbb;	background: #ffffff; /* Old browsers */   background: -moz-linear-gradient(top, #ffffff 0%, #f5f5f5 100%); /* FF3.6+ */   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f5f5)); /* Chrome,Safari4+ */float:left; margin:10px 0; padding:10px; text-align:left; 		font-family:Arial, Helvetica, sans-serif; font-size:21px; color:#000000 ; font-style:italic;}
 	
 .txt
-{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font-color:#767676;}
+{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font color:#767676}
 .txt1
-{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font-style:italic; font-color:#4b4b4b;}
+{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font-style:italic; font color:#4b4b4b;}
+
+
+.deal2{
+    background: -moz-linear-gradient(center top , #FF4B52 0%, #E41B23 3%, #C20109 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #B20000;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    float: left;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+    height: auto;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #720005;
+    width: auto;
+}
+.off2 {
+    color: #A7A7A7;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+

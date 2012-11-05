@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CoderSave</title>
+<title>CoderSave - cheap programming tutorials</title>
 <%= javascript_include_tag 'application', 'jquery-1','jquery.validate.min' %>
 <%= stylesheet_link_tag  "signup-login.css", "style.css", "bootstrap.css"  %>
 <%= csrf_meta_tag %>
@@ -104,8 +104,17 @@
 <body>
 
 <div align="center" id="maindiv">
+	 <div class="top_right_menu" style="margin:20px 20px 0 0">
+  		<%= link_to "About Us", users_about_us_path %>
+        <%= link_to "How it works",users_how_it_works_path %> </div>
   <div align="center" id="wrapper">
-    <div id="logo"><%= link_to image_tag('/assets/logo2.png'), user_root_path %></div>
+  	
+     <div id="frontlogo"><%= link_to image_tag('/assets/front_logo.png') %>
+	
+	<div class="discount_line">Discounts on the best programming courses. <br />
+	<span class="discount_red">Up to 70% OFF!</span></div>
+	
+	</div>
 	 	<div id="loginbox">
      	 <div style="display: block;" id="login" class="logindiv">
 	 		 <h1>Member Login</h1>
@@ -197,7 +206,7 @@
                 <span class="main-info">
                     <h3><%= course.course_title %> </h3>
                     <h4>
-                        <span style="background-image: url(<%= course.profile_photo_url(:normal)%>)" class="thumb"></span> 
+                        
                         <span class="title ellipsis"><%= course.headline %>  </span>
                         <span class="job-title ellipsis"><%= truncate(course.goals_objectives, :length => 50).html_safe %></span> 
                     </h4>
@@ -206,7 +215,7 @@
                  <%= truncate(course.course_summary, :length => 120) %></span> 
                 </a>
      </li>
-			<% end %>							
+			<%end%>							
 				
 	</ul>
 
@@ -215,7 +224,7 @@
   
   </div>
   <div class="footer_wrap">
-  <div class="footer">Copyright 2012 codersave   |   Privacy</div>
+  <div class="footer">Codersave.com <img src ="/assets/Copyright_symbol_9.gif" height="10" width="10">  Terms and  Privacy</div>
   
   </div>
 </div>

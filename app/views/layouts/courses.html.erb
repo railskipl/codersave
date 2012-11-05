@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CoderSave</title>
+<title>CoderSave - cheap programming tutorials</title>
 <%= stylesheet_link_tag  "ajaxful_rating.css","style2.css"%>
    
 <%= javascript_include_tag 'application' %>
@@ -21,17 +21,19 @@
   			<div id="header">
 			
 	<div id="logo2"><%= link_to image_tag('/assets/logo2.png'), user_root_path %></div>
-<div class="top_right_menu"><%= current_user.email rescue "" %>   
+<div class="top_right_menu"><%= current_user.email rescue "" %>
+<%= link_to "Home", user_root_path %>	   
 <%= link_to "About Us", users_about_us_path %>
  <%= link_to "How it works",users_how_it_works_path %> 
 <%= link_to "My Account", users_my_profile_path %>        
-<%= link_to "Help",users_help_path %>     
+<%= link_to "Contact",users_help_path %>     
 <%= link_to "Logout", user_signout_path %></div>
 </div>
 
 <%= yield %>
 <div class="footer_wrap">
-  	<div class="footer"> Copyright 2012 codersave   |   Privacy</div>
+  	  <div class="footer">Codersave.com <img src ="/assets/Copyright_symbol_9.gif" height="10" width="10">  Terms and   Privacy</div>
+
   
   </div>
 </div>

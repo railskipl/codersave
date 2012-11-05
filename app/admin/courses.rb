@@ -13,12 +13,12 @@ ActiveAdmin.register Course do
       f.input :course_category, :as => :select, :collection => category,:prompt=>'select'
       f.input :is_featured
       f.input :headline
-      f.input :course_summary
-      f.input :goals_objectives
+      f.input :course_summary,:input_html => {:class => "ckeditor"}
+      f.input :goals_objectives,:input_html => {:class => "ckeditor"}
       f.input :intended_audience
-      f.input :course_requirements
+      f.input :course_requirements,:input_html => {:class => "ckeditor"}
       f.input :instructor
-      f.input :description
+      f.input :description,:input_html => {:class => "ckeditor"}
       f.input :video_link
       f.input :price
       f.input :discounted_price
@@ -26,6 +26,7 @@ ActiveAdmin.register Course do
       f.input :Voucher
       f.input :Number_of_People
       f.input :courserating
+      f.input :out_of_stars
       f.input :ExpiryDate
       f.input :affiliate_program_link
       f.input :image
@@ -71,6 +72,11 @@ ActiveAdmin.register Course do
     row :affiliate_program_link
     row :image
     row :is_featured
+    row :out_of_stars
+    
   end
   end
+ 
+  
+  
 end
