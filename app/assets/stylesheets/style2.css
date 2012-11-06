@@ -423,9 +423,9 @@ width: auto;
 	width:956px; height:23px; min-height:23px; overflow:hidden; border-radius:10px; 	border:1px solid #bbbbbb;	background: #ffffff; /* Old browsers */   background: -moz-linear-gradient(top, #ffffff 0%, #f5f5f5 100%); /* FF3.6+ */   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f5f5)); /* Chrome,Safari4+ */float:left; margin:10px 0; padding:10px; text-align:left; 		font-family:Arial, Helvetica, sans-serif; font-size:21px; color:#000000 ; font-style:italic;}
 	
 .txt
-{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font color:#767676}
+{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font-color:#767676}
 .txt1
-{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font-style:italic; font color:#4b4b4b;}
+{ font-family:Arial, Helvetica, sans-serif; font-size:17px; font-style:italic; font-color:#4b4b4b;}
 
 
 .deal2{
