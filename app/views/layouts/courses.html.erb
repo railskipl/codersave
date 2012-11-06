@@ -20,15 +20,32 @@
 
   			<div id="header">
 			
-	<div id="logo2"><%= link_to image_tag('/assets/logo2.png'), user_root_path %></div>
-<div class="top_right_menu"><%= current_user.email rescue "" %>
-<%= link_to "Home", user_root_path %>	   
-<%= link_to "About Us", users_about_us_path %>
- <%= link_to "How it works",users_how_it_works_path %> 
-<%= link_to "My Account", users_my_profile_path %>        
-<%= link_to "Contact",users_help_path %>     
-<%= link_to "Logout", user_signout_path %></div>
-</div>
+	<div id="logo2">
+		<% if signed_in? %>
+			<%= link_to image_tag('/assets/logo2.png'), user_root_path %>
+		<% else %>
+			<%= link_to image_tag('/assets/logo2.png'), root_path %>
+		<% end %>
+	</div>
+	
+	<div class="top_right_menu">
+		<%= current_user.email rescue "" %>
+		<% if signed_in? %> 
+			<%= link_to "Home", user_root_path %>
+		<% end %>	   
+		<%= link_to "About Us", users_about_us_path %>
+ 		<%= link_to "How it works",users_how_it_works_path %> 
+ 		
+ 		<% if signed_in? %>
+			<%= link_to "My Account", users_my_profile_path %>
+		<% end %>
+		        
+		<%= link_to "Contact",users_help_path %>     
+
+		<% if signed_in? %>     
+			<%= link_to "Logout", user_signout_path %>
+		<% end %>
+	</div>
 
 <%= yield %>
 <div class="footer_wrap">

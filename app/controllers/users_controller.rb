@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :update]
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:edit, :update, :my_profile, :dashboard]
+  before_filter :correct_user, :only => [:edit, :update, :my_profile, :dashboard]
   layout 'dashboard'
   def show
     @user = User.find(params[:id])

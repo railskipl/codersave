@@ -105,11 +105,13 @@
 
 <div align="center" id="maindiv">
 	 <div class="top_right_menu" style="margin:20px 20px 0 0">
-  		<%= link_to "About Us", users_about_us_path %>
-        <%= link_to "How it works",users_how_it_works_path %> </div>
+  		<%= link_to "About Us", users_about_us_path %> &nbsp;&nbsp;
+        <%= link_to "How it works",users_how_it_works_path %> &nbsp;&nbsp;
+        <%= link_to "Contact",users_help_path %> 
+     </div>
   <div align="center" id="wrapper">
   	
-     <div id="frontlogo"><%= link_to image_tag('/assets/front_logo.png') %>
+     <div id="frontlogo"><%= link_to image_tag('/assets/front_logo.png'), root_path %>
 	
 	<div class="discount_line">Discounts on the best programming courses. <br />
 	<span class="discount_red">Up to 70% OFF!</span></div>
@@ -204,7 +206,7 @@
                </span>
            </span>
                 <span class="main-info">
-                    <h3><%= course.course_title %> </h3>
+                    <h3><%= truncate(course.course_title, :length => 28) %> </h3>
                     <h4>
                         
                         <span class="title ellipsis"><%= course.headline %>  </span>

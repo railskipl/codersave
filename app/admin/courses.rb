@@ -5,6 +5,7 @@ ActiveAdmin.register Course do
      @per_page = 5
   end
   
+  
      category = [["Webtutorial"], ["Apptutorial"]]
      
    form do |f|
@@ -73,10 +74,9 @@ ActiveAdmin.register Course do
     row :image
     row :is_featured
     row :out_of_stars
-    
+     
   end
   end
  
-  
   
 end
