@@ -27,7 +27,7 @@ ActiveAdmin.register Course do
       f.input :Voucher
       f.input :Number_of_People
       f.input :courserating
-      
+      f.input :out_of_stars
       f.input :ExpiryDate
       f.input :affiliate_program_link
       f.input :image
