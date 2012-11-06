@@ -1,7 +1,7 @@
 DemoCloud::Application.routes.draw do 
  
   resources :comments
-
+  
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -16,7 +16,7 @@ DemoCloud::Application.routes.draw do
    post "rate", :on=> :member
  end
  
-
+ match "pages/:id" ,:to => "pages#show"
  
  # Match the Omniauth provider Callback.
  match '/auth/:provider/callback' => 'authentications#create' 
