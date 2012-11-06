@@ -38,9 +38,18 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c0c0c
 
 .white_txt{ color:#FFFFFF}
 
-.footer_wrap{ width:100%; height:auto; padding:15px 0 15px 0; color:#616161; border-top:1px solid #000; background:#e6e6e6}
+.footer_wrap{
+	width:100%; 
+	height:auto; 
+	padding:15px 0 15px 0; 
+	color:#616161; 
+	border-top:1px solid #000; 
+	background:#e6e6e6}
 
-.footer{ width:1000px; height:auto; text-align:right}
+.footer{ 
+	width:980px; 
+	height:auto; 
+	text-align:right; overflow:hidden}
 
 .course_preview_bg{ width:100%; height:auto; background:url(/assets/black_block.jpg)}
 

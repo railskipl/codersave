@@ -20,6 +20,8 @@ gem 'ajaxful_rating', :git => 'git://github.com/edgarjs/ajaxful-rating.git', :br
 gem 'fog'
 gem 'ckeditor', '3.7.3'
 gem 'foreigner'
+gem "friendly_id", "~> 3.3.0.alpha2"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
