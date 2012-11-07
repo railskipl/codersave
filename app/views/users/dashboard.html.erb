@@ -12,12 +12,12 @@
 	
 	<div class="tutorial_image"><%= link_to image_tag("#{course.image_url(:normal1)}"),course %></div>
 	
-	<div style="width:auto; float:left; text-align:center; margin:10px 0 0 10px">
+	<!-- <div style="width:auto; float:left; text-align:center; margin:10px 0 0 10px">
 	
 	 	  <%= ratings_for course, :dimension => :quality rescue "" %>
 	
-	</div>
-	
+	</div> -->
+	<div class="rating star<%= course.courserating %>"></div>
 	 
 	</div>
 	

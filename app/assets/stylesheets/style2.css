@@ -452,6 +452,25 @@ width: auto;
     font-weight: bold;
 }
 
+    .star {background : url("/assets/star-matrix1.gif") no-repeat scroll 0 0 transparent !important;}
+    .star1 {background : url("/assets/star-matrix1.gif") no-repeat scroll 0 -16px transparent !important;}
+    .star2 {background : url("/assets/star-matrix1.gif") no-repeat scroll 0 -32px transparent !important;}
+    .star3 {background : url("/assets/star-matrix1.gif") no-repeat scroll 0 -48px transparent !important;}
+    .star4 {background : url("/assets/star-matrix1.gif") no-repeat scroll 0 -64px transparent !important;}
+    .star5 {background : url("/assets/star-matrix1.gif") no-repeat scroll 0 -80px transparent !important;}
+
+    .rating{
+    width:80px;
+    height:16px;
+    margin:0 0 20px 0;
+    padding:0;
+    list-style:none;
+    clear:both;
+    position:relative;
+    background: url(/assets/star-matrix1.gif) no-repeat 0 0;
+    }
+    
+
 
 
 

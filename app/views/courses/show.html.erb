@@ -29,14 +29,9 @@
 	<div style="margin:0; float:left; width:100%">
 	
 	<div> </div>
-	<div>
-		<div style="width:auto; float:left; text-align:left; margin:10px 0 10px 0px">
-	
-      <%= ratings_for @course, :dimension => :quality %>
-	
-	</div>
-	
-	</div>
+	    <div class="rating star<%= @course.courserating %>"></div>
+
+
 	<div style="width:100%; float:left"><%= @course.courserating %> out of <%= @course.out_of_stars %> stars on Udemy by <%= @course.Number_of_People %> subscribers</div>
 	
 	</div>
