@@ -19,6 +19,9 @@ DemoCloud::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  # Precomiplation of CKeditor
+  config.assets.precompile += Ckeditor.assets
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH

@@ -9,7 +9,7 @@ class CreateCourses < ActiveRecord::Migration
        t.string :intended_audience
        t.text :course_requirements
        t.string :instructor
-       t.text :description
+       t.text  :description
        t.string :video_link
        t.integer :price
        t.integer :discounted_price
