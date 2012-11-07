@@ -4,8 +4,11 @@ ActiveAdmin.register Page do
     f.inputs do
       f.input :title
       f.input :discription, :input_html => {:class => "ckeditor"}
+    
+      end
+      f.buttons
     end
-  end
+    
    show do
     attributes_table do
     row :title  
