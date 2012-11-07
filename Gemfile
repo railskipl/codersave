@@ -21,6 +21,7 @@ gem 'fog'
 gem 'ckeditor', '3.7.3'
 gem 'foreigner'
 gem "friendly_id", "~> 3.3.0.alpha2"
+gem "mini_magick"
 
 # Gems used only for assets and not required
 # in production environments by default.

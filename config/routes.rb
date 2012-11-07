@@ -1,5 +1,7 @@
 DemoCloud::Application.routes.draw do 
  
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :comments
   
   ActiveAdmin.routes(self)
