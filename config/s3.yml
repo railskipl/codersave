@@ -1,15 +1,15 @@
 common: &common
-    access_key_id: AKIAJRZB7XFQX4CT3FXA
-    secret_access_key: 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
+    access_key_id: 
+    secret_access_key: 
 
 development:
     <<: *common
-    bucket: Codersave
+    bucket: 
 
 test:
     <<: *common
-    bucket: Codersave
+    bucket: 
 
 production:
     <<: *common
-    bucket: Codersave
+    bucket: 
